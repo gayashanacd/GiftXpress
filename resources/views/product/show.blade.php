@@ -24,6 +24,11 @@
           @endif
         </p>
         <p class="card-text">{{ $viewData["product"]->getDescription() }}</p>
+
+        {{-- Buy Now Button --}}
+        <a href="{{ route('product.buy', ['id' => $viewData['product']->getId()]) }}" class="btn btn-success mt-3 w-100">
+          Buy Now
+        </a>
       </div>
     </div>
   </div>
