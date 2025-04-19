@@ -25,7 +25,6 @@ class AdminProductController extends Controller
         $nProduct->setName($request->input("name"));
         $nProduct->setDescription($request->input("description"));
         $nProduct->setPrice($request->input("price"));
-        $nProduct->setAmount($request->input("amount"));
         $nProduct->setCurrency($request->input("currency"));
         $nProduct->setBrand($request->input("brand"));
         $nProduct->setCategory($request->input("category"));
@@ -68,7 +67,6 @@ class AdminProductController extends Controller
         $eProduct->setName($request->input("name"));
         $eProduct->setDescription($request->input("description"));
         $eProduct->setPrice($request->input("price"));
-        $eProduct->setAmount($request->input("amount"));
         $eProduct->setCurrency($request->input("currency"));
         $eProduct->setBrand($request->input("brand"));
         $eProduct->setCategory($request->input("category"));

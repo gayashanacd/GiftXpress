@@ -57,12 +57,12 @@
             <input type="text" name="brand" class="form-control" value="{{ old('brand') }}">
           </div>
         </div>
-        <div class="col">
+        <!-- <div class="col">
           <div class="mb-3">
             <label class="form-label">Amount</label>
             <input type="number" step="0.01" name="amount" class="form-control" value="{{ old('amount') }}">
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="row">

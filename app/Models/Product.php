@@ -26,7 +26,6 @@ class Product extends Model
         'image',
         'price',
         'brand',
-        'amount',
         'currency',
         'category',
         'available_stock',
@@ -39,7 +38,6 @@ class Product extends Model
             "name" => "required|max:255",
             "description" => "required",
             "price" => "required|numeric|gt:0",
-            "amount" => "required|numeric|gt:0",
             "currency" => "required|string|max:5",
             "brand" => "required|string|max:100",
             "category" => "required|string|max:100",
@@ -65,10 +63,7 @@ class Product extends Model
 
     public function getPrice() { return $this->attributes['price']; }
     public function setPrice($price) { $this->attributes['price'] = $price; }
-
-    public function getAmount() { return $this->attributes['amount']; }
-    public function setAmount($amount) { $this->attributes['amount'] = $amount; }
-
+    
     public function getCurrency() { return $this->attributes['currency']; }
     public function setCurrency($currency) { $this->attributes['currency'] = $currency; }
 

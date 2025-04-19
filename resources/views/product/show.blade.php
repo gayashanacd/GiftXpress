@@ -13,7 +13,6 @@
           {{ $viewData["product"]->getName() }} ({{ $viewData["product"]->getCurrency() }} {{ number_format($viewData["product"]->getPrice(), 2) }})
         </h5>
         <p><strong>Brand:</strong> {{ $viewData["product"]->getBrand() }}</p>
-        <p><strong>Amount:</strong> {{ number_format($viewData["product"]->getAmount(), 2) }}</p>
         <p><strong>Category:</strong> {{ $viewData["product"]->getCategory() }}</p>
         <p><strong>Available Stock:</strong> {{ $viewData["product"]->getAvailableStock() }}</p>
         <p><strong>Status:</strong> 
@@ -25,10 +24,7 @@
         </p>
         <p class="card-text">{{ $viewData["product"]->getDescription() }}</p>
 
-        {{-- Buy Now Button --}}
-        <a href="{{ route('product.buy', ['id' => $viewData['product']->getId()]) }}" class="btn btn-success mt-3 w-100">
-          Buy Now
-        </a>
+        <a href="{{ route('order.create', ['id' => $viewData['product']->getId()]) }}" class="btn btn-success mt-3">Buy</a>
       </div>
     </div>
   </div>

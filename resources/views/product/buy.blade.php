@@ -15,8 +15,8 @@
     </div>
   </div>
 </div>
-
-<form method="POST" action="{{ route('product.purchase', ['id' => $viewData['product']->getId()]) }}">
+<form method="POST" action="{{ route('order.store', ['id' => $product->getId()]) }}">
+<!-- <form method="POST" action="{{ route('product.purchase', ['id' => $viewData['product']->getId()]) }}"> -->
   @csrf
   <div class="mb-3">
     <label for="quantity" class="form-label">Enter Number of Cards:</label>

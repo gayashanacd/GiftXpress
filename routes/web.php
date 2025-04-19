@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,12 @@ Route::middleware('admin')->group(function()  {
         ->name("admin.product.edit");
     Route::put('/admin/products/{id}/update', 'App\Http\Controllers\Admin\AdminProductController@update')
         ->name("admin.product.update");
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/product/{id}/buy', [OrderController::class, 'create'])->name('order.create');
+    Route::post('/product/{id}/buy', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 });
 
 Auth::routes();   
