@@ -30,6 +30,8 @@ Route::get('/products/{id}', 'App\Http\Controllers\ProductController@show')->nam
 Route::get('/buy/{id}', [App\Http\Controllers\ProductController::class, 'buy'])->name('product.buy');
 Route::post('/buy/{id}', [App\Http\Controllers\ProductController::class, 'purchase'])->name('product.purchase');
 
+Route::get('/currency/convert', 'App\Http\Controllers\CurrencyController@convert')->name('currency.convert');
+
 Route::middleware('admin')->group(function()  {
     // admin
     Route::get('/admin', 'App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");

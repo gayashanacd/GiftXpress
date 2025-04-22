@@ -21,24 +21,56 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
-                    <a class="nav-link active" href="{{ route('home.about') }}">About</a>
-                    <a class="nav-link active" href="{{ route('product.index') }}">Products</a>
-                    <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-                      @guest
-                      <a class="nav-link active" href="{{ route('login') }}">Login</a>
-                      <a class="nav-link active" href="{{ route('register') }}">Register</a>
-                      @else
-                      <form id="logout" action="{{ route('logout') }}" method="POST">
-                        <a class="nav-link active" role="button" 
-                          onclick="document.getElementById('logout').submit();">Logout</a>
-                        @csrf
-                      </form>
-                      @endguest
-                    
-                </div>
+            <div class="navbar-nav ms-auto align-items-center">
+              <!-- Currency Converter Form -->
+              <form action="{{ route('currency.convert') }}" method="GET" class="d-flex align-items-center me-3">
+                <input type="number" name="amount" placeholder="Amount" class="form-control form-control-sm me-2" style="width: 100px;">
+                <select name="currency" class="form-select form-select-sm me-2" style="width: 100px;">
+                <option value="CAD">CAD - Canadian Dollar</option>
+                <option value="USD">USD - US Dollar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - British Pound</option>
+                <option value="AUD">AUD - Australian Dollar</option>
+                <option value="JPY">JPY - Japanese Yen</option>
+                <option value="CNY">CNY - Chinese Yuan</option>
+                <option value="INR">INR - Indian Rupee</option>
+                <option value="CHF">CHF - Swiss Franc</option>
+                <option value="AED">AED - UAE Dirham</option>
+                <option value="SAR">SAR - Saudi Riyal</option>
+                <option value="SGD">SGD - Singapore Dollar</option>
+                <option value="HKD">HKD - Hong Kong Dollar</option>
+                <option value="MXN">MXN - Mexican Peso</option>
+                <option value="NZD">NZD - New Zealand Dollar</option>
+                <option value="KRW">KRW - South Korean Won</option>
+                <option value="BRL">BRL - Brazilian Real</option>
+                <option value="ZAR">ZAR - South African Rand</option>
+                <option value="RUB">RUB - Russian Ruble</option>
+                </select>
+                <button type="submit" class="btn btn-light btn-sm">Convert</button>
+              </form>
 
+              @if (session('currency_result'))
+                <div class="alert alert-info text-center" style="padding: 5px; margin-top: 15px;">
+                  {{ session('currency_result') }}
+                </div>
+              @endif
+
+              <a class="nav-link active" href="{{ route('home.index') }}">Home</a>
+              <a class="nav-link active" href="{{ route('home.about') }}">About</a>
+              <a class="nav-link active" href="{{ route('product.index') }}">Products</a>
+              <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+
+              @guest
+                <a class="nav-link active" href="{{ route('login') }}">Login</a>
+                <a class="nav-link active" href="{{ route('register') }}">Register</a>
+              @else
+                <form id="logout" action="{{ route('logout') }}" method="POST">
+                  <a class="nav-link active" role="button" onclick="document.getElementById('logout').submit();">Logout</a>
+                  @csrf
+                </form>
+              @endguest
+
+              </div>
             </div>
         </div>
     </nav>
