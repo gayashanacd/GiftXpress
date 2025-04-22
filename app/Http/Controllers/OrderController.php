@@ -26,6 +26,9 @@ class OrderController extends Controller
             'total_price' => $total,
             'status' => 'processing',
         ]);
+        
+        $product->setAvailableStock($product->getAvailableStock() - $request->quantity);
+        $product->save();
 
         return redirect()->route('orders.index')->with('success', 'Order placed successfully!');
     }
